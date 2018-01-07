@@ -275,9 +275,10 @@ class GeekNoteAuth(object):
             logging.error("Target URL was not found in the response on login")
             tools.exitErr()
 
-        if response.status == 302:
-            # the user has enabled two factor auth
-            return self.handleTwoFactor()
+        # @todo response.status is always 302, regardless of whether TwoFactor is enabled
+        # if response.status == 302:
+        #     # the user has enabled two factor auth
+        #     return self.handleTwoFactor()
 
         logging.debug("Success authorize, redirect to access page")
 
